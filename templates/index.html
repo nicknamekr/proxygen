@@ -1,5 +1,6 @@
 <html>
   <header>
+    <title>ProxyGen</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <style>
       @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
@@ -38,7 +39,7 @@
       }
       
       body, html {
-        height: 200%;
+        height: 100%;
       }
       
       * {
@@ -58,18 +59,30 @@
         text-align: center;
         font-size:1.5rem;
       }
+      a:link {
+        color : black;
+      }
+      a:visited {
+        color : black;
+      }
+      a:hover {
+        color : black;
+      }
+      a:active {
+        color : black;
+      }
     </style>
     <h1>ProxyGen</h1>
   </header>
   <main>
     <center style="align-items: center;">
-     <div style="height:4%;"></div>
-     <h1 style="font-size:4rem;">Your HTTP Proxy</h1>
+     <div style="height:16%;"></div>
+     <h1 style="font-size:4rem;">Your {{name}} Proxy</h1>
      <div style="height:5px;"></div>
      <input type="text" value={{proxy}} oninput="this.value = this.value.replace(/[^0-9]/g, '');" readonly>
+     <p>메뉴 : <a href='/'>HTTP</a>, <a href='/socks4'>SOCKS4</a>, <a href='/socks5'>SOCKS5</a> 보기</p>
      <p>ProxyGen은 proxyscrape.com에서 프록시를 제공받습니다.</p>
-     <p>Nickname이 만들었으며 ❤️를 넣어 만들었습니다.</p>
-     <p>복사해서 자유롭게 사용하셔도 됩니다.</p>
+     <p>Nickname이 Fastapi와 ❤️를 사용해 만들었습니다.</p>
     </center>
   </main>
 </html>
