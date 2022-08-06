@@ -8,6 +8,14 @@ from urllib.request import urlretrieve
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
 
+def download():
+  urlretrieve("https://api.proxyscrape.com/v2/?request=getproxies&protocol=http&timeout=10000&country=all&ssl=all&anonymity=all", "./http_proxies.txt")
+  urlretrieve("https://api.proxyscrape.com/v2/?request=getproxies&protocol=http&timeout=10000&country=all&ssl=all&anonymity=all", "./socks4_proxies.txt")
+  urlretrieve("https://api.proxyscrape.com/v2/?request=getproxies&protocol=http&timeout=10000&country=all&ssl=all&anonymity=all", "./socks5_proxies.txt")
+  threading.Timer(500, download).start()
+
+download()
+
 @app.get('/', response_class=HTMLResponse)
 async def root(request:Request):
   print('HTTP Proxy loaded.')
